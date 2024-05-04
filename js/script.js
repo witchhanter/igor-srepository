@@ -81,3 +81,30 @@ function(){
     }
     this.previousTop = currentTop;
 });
+
+
+
+$(document).ready(function(){
+    $(".submit").on("click", function(){
+        if($("#name").val() != "" && $("#email").val() != ""){
+            fetch("../send.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: $("#send_form").serialize(),
+            }).then((responce) => responce.json()).then((data) => {
+                if (data.status === "ok") {
+                    $("#send_form").addClass("send_succsess");
+                    setTimeout(() => $("#send_form").removeClass("send_succsess"), 4000);
+                }
+                if (data.status === "error") {
+                    $("#send_form").addClass("send_fail");
+                    setTimeout(() => $("#send_form").removeClass("send_fail"), 4000);
+            }
+        });
+        }else{
+            alert("Заполните обязательные поля!");
+        }
+    });
+    });
