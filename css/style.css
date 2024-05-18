@@ -1,3 +1,12 @@
+@keyframes spinningSquares{
+    0% {
+        transform:scale(1);
+    }
+
+    100% {
+        transform:scale(0.3) rotate(90deg);
+    }
+}
 @font-face {
     font-family: 'bignoodletitling';
     src: url('../fonts/bignoodletitling.ttf');
@@ -42,6 +51,7 @@ body{
     background: white;
     height: 140px;
     /* height: 130px; */
+    padding-left: 5%;
 }
 
 .banner {
@@ -566,3 +576,42 @@ footer img {
 #send_form{
     transition: all 1s ease-out;
 }
+
+
+
+
+.preload {
+    position: fixed;
+    z-index: 99999999;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+}
+
+#spinSquares {
+    position: relative;
+    width: 234px;
+    height: 28px;
+    margin: auto;
+    top: 50%;
+}
+
+.spinSquar {
+    position: absolute;
+    top: 0;
+    width: 28px;
+    height: 28px;
+    background-color: #ffffff;
+    animation-name: spinningSquares;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+#spinSquar_1 {margin-left: 0; animation-delay: 0.6s;}
+#spinSquar_2 {margin-left: 28px; animation-delay: 0.75s;}
+#spinSquar_3 {margin-left: 56px; animation-delay: 0.9s;}
+#spinSquar_4 {margin-left: 84px; animation-delay: 1.05s;}
+#spinSquar_5 {margin-left: 112px; animation-delay: 1.2s;}
+#spinSquar_6 {margin-left: 140px; animation-delay: 1.35s;}
+#spinSquar_7 {margin-left: 168px; animation-delay: 1.5s;}
+#spinSquar_8 {margin-left: 196px; animation-delay: 1.65s;}
